@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index1.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .head {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .head h2 {
+            margin-bottom: 20px;
+        }
+        
+        .container {
+            position:relative;
+            left:425px;
+            height: 500px;
+            width:700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px; 
+        }
+        
+        .trafficlight {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: black; 
+            padding: 7px 6px;
+            border-radius: 30px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .light {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px;
+            background-color: #fff;    
+        }
+        
+        #red:checked~.trafficlight .red {
+            background-color: red;
+        }
+        
+        #yellow:checked~.trafficlight .yellow {
+            background-color: yellow;
+        }
+        
+        #green:checked~.trafficlight .green {
+            background-color: rgb(26, 232, 3);
+        }
+        
+        #all:checked~.trafficlight .red {
+            background-color: red;
+        }
+        
+        #all:checked~.trafficlight .yellow {
+            background-color: yellow;
+        }
+        
+        #all:checked~.trafficlight .green {
+            background-color: rgb(26, 232, 3);
+        }
+        
+        #reset:checked~.trafficlight .light {
+            background-color: #fff;
+        }
+        
+        input[type="radio"] {
+            display: none;
+        }
+        
+        
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 20px;
+                }
+        
+        .button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        .button-container label {
+            border: 2px solid rgb(245, 241, 243);
+            background-color: rgb(245, 241, 244);
+            border-radius: 20px;
+            text-align: center;
+            width: 100px;
+            height: 45px;
+            margin: 3px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1); 
+        }
+      
+        #red:checked~.button-container label[for="red"] {
+            border: 2px solid red;
+            background-color: red;
+        }
+        
+        #yellow:checked~.button-container label[for="yellow"] {
+            border: 2px solid yellow;
+            background-color: yellow;
+        }
+        
+        
+        #green:checked~.button-container label[for="green"] {
+            border: 2px solid rgb(26, 232, 3);
+            background-color: rgb(26, 232, 3);
+        }
+        
+        
+        #all:checked~.button-container label[for="all"] {
+            border: 2px solid rgb(3, 180, 244);
+            background-color: rgb(3, 180, 244);
+        }
+        
+        #all:checked~.button-container label[for="red"] {
+            border: 2px solid red;
+            background-color: red;
+        }
+        
+        #all:checked~.button-container label[for="yellow"] {
+            border: 2px solid  yellow;
+            background-color:  yellow;
+        }
+        
+        #all:checked~.button-container label[for="green"] {
+            border: 2px solid rgb(26, 232, 3);
+            background-color: rgb(26, 232, 3);
+        }
+        
+        
+        
+        #alt:checked ~ .button-container label[for="alt"] {
+            animation: alt-btn-animation 4s infinite;
+        }
+        
+        @keyframes alt-btn-animation {
+            0%,33% {
+                background-color: red;
+                border: 2px solid red;
+            }
+        
+            66%{
+                background-color: yellow;
+                border: 2px solid yellow;
+            }
+        
+            100%{
+                background-color: rgb(26, 232, 3);
+                border: 2px solid rgb(26, 232, 3);
+            }
+        }
+        
+        
+        #alt:checked ~ .trafficlight .red {
+            animation: alt-light1-animation 4s infinite;
+            transition: 5s;
+        }
+        
+        #alt:checked ~ .trafficlight .yellow {
+            animation: alt-light2-animation 4s infinite;
+            transition: 5s;
+        }
+        
+        #alt:checked ~ .trafficlight .green {
+            animation: alt-light3-animation 4s infinite;
+            
+        }
+        
+        @keyframes alt-light1-animation {
+            0% {
+                background-color:#fff;
+            }
+        
+            33% {
+                background-color: red;
+            }
+            66%{
+                background-color:#fff;
+            }
+            100% {
+                background-color: #fff;
+            }
+        }
+        
+        @keyframes alt-light2-animation {
+            0% {
+                background-color: #fff;
+            }
+        
+            33% {
+                background-color:#fff;
+            }
+            66%{
+                background-color: yellow;
+            }
+            100%{
+                background-color: #fff;
+            }
+        }
+        
+        @keyframes alt-light3-animation {
+            0%{
+                background-color: #fff;
+            }
+            33%{
+                background-color: #fff;
+            }
+            66% {
+                background-color: #fff;
+            }
+        
+            100% {
+                background-color:rgb(26, 232, 3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h1><samp>Trafficlight Simulator</samp></h1>
+        <h2><samp>Arpit</samp></h2>
+        <h2></h2>
+
+       
+        <div class="container">
+
+            <input type="radio" id="red" name="traffic-light">
+            <input type="radio" id="yellow" name="traffic-light">
+            <input type="radio" id="green" name="traffic-light">
+            <input type="radio" id="all" name="traffic-light">
+            <input type="radio" id="alt" name="traffic-light">
+            <input type="radio" id="reset" name="traffic-light">
+
+            <div class="trafficlight">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+            </div>
+            <div class="button-container">
+                <label class="button" for="red">Red</label>
+                <label class="button" for="yellow">Yellow</label>
+                <label class="button" for="green">Green</label>
+                <label class="button" for="all">All</label>
+                <label class="button" for="alt">Alt</label>
+                <label class="button" for="reset">Reset</label>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
